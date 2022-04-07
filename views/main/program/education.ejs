@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs')  %>
+
+
+<div class="container" style="margin: 25px;padding: 126px;">
+    <h1
+        style="text-align: center;height: -27px;padding: -20px;margin: -55px; font-family: 'montserrat', sans-serif; font-size: 2.8rem;">
+        <b>programs</b>
+    </h1>
+</div>
+
+        <div class="row">
+
+            <% for(let i in program){ %> 
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="card mx-auto" style="width: 20rem;">
+                        <img src="" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=program[i].title%> </h5>
+                          <p class="card-text"><%=program[i].description%></p>
+                          <p class="card-text"><%= program[i].type%></p>
+                          <a href="/program/<%= program[i]._id %>" class="btn btn-info btn-small">Read More</a>
+                        </div>
+                      </div>
+                </div>
+            <%}%>
+        </div>
+          
+<div>
+<%- include('../partials/footer.ejs')  %>

@@ -1,0 +1,55 @@
+<%- include('../partials/header.ejs')  %>
+
+<body>
+    
+    <style>
+    #css-serial {
+        counter-reset: serial-number;
+      }
+      
+      #css-serial td:first-child:before {
+        counter-increment: serial-number; 
+        content: counter(serial-number); 
+      }
+      </style>
+
+    <table id="css-serial" class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>S.No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Edit User</th>
+            <th scope="col">Delete User</th>
+          </tr>
+        </thead>
+        <% users.forEach((user)=>{%>
+        <tbody>
+          <tr>
+            <td></td> 
+            <td><%=user.username%></td>
+            <td><%=user.role%></td>
+            <td>
+                <a href="/viewusers/<%=user._id%>/edit" class="btn btn-info btn-info">Edit</a>      
+            </td>
+             
+            <td>
+                <form class="d-inline-block" action="/viewusers/<%=user._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-info">Delete</button>
+                </form>
+
+          </tr>
+        <%})%>
+</table>
+</body>
+
+ <!-- Footer -->
+ <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Super FabLab 2021</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+</html>
